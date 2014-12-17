@@ -1,0 +1,1473 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <META http-equiv="Content-Language" content="de">
+  
+  <title>CoLaLe_trial prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="css/jquery-ui.min.css" rel="stylesheet"/>
+  <link href="css/jquery-ui.structure.min.css" rel="stylesheet"/>
+  <link href="css/jquery-ui.theme.min.css" rel="stylesheet"/>
+
+  <link href="css/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet"/>
+  <link href="css/colale-beta.css" rel="stylesheet"/>
+  <link href="css/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet"/>
+
+  <link href="css/jQMProgressBar.css" rel="stylesheet"/>
+  <link href="css/codiqa.ext.min.css" rel="stylesheet"/>
+  <link href="css/styles.css" rel="stylesheet"/>
+
+  <script type="text/javascript" src="js/l10n.js"></script>
+  <link rel="prefetch" type="application/l10n" href="locales/data.ini" />
+
+  <!--script src="js/underscore-min.js"></script-->
+  <script src="cordova.js"></script>
+  <script src="js/OpenLayers.js"></script>
+
+  <!--script src="js/jquery-1.9.1.js"></script-->
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <!--script src="js/jquery.mobile-1.3.1.js"></script-->
+  <script src="js/jquery.mobile-1.3.1.min.js"></script>
+  <!--script src="js/jquery.mobile-1.4.5.min.js"></script-->
+  <script src="js/jQMProgressBar.js"></script>
+  <script src="js/codiqa.ext.min.js"></script>
+
+
+  <script src="js/colale.constants.js"></script>
+  <script src="js/colale.lib.js"></script>
+  <script src="js/colale.model.js"></script>
+  <script src="js/colale.view.js"></script>
+  <script src="js/colale.control.js"></script>
+  <script src="js/colale_phrases.js"></script>
+  
+  <!--script src="https://cdn.flurry.com/js/flurry.js"></script-->
+  <!--script src="js/flurry.js"></script-->
+  <script type="text/javascript" src="js/distimosdk/distimosdk.js"></script>
+  <script type="text/javascript">
+		//FlurryAgent.startSession("W6WQXWFKR3B4V5GPJ3J9");
+
+  		// Trackers
+  		var GAnalyticsAgent;
+  		var DistimoAgent;
+		
+		var onDeviceReady = function () {
+			// Flurry
+			//console.log("Flurry initialization...");
+			//window.plugins.flurry.startSession("W6WQXWFKR3B4V5GPJ3J9");
+			
+			
+			//window.plugins.flurry.startSession("VWRQD3F3XS7M7XCC7VJK");
+			//flurry.startSession("VWRQD3F3XS7M7XCC7VJK");
+			
+  			// Google Analytics
+	  		GAnalyticsAgent = navigator.analytics;
+	  		GAnalyticsAgent.setTrackingId('UA-57646764');
+	  		GAnalyticsAgent.setLogLevel(GAnalyticsAgent.LogLevel.VERBOSE);
+	  		
+	  		// Distimo
+	  		//DistimoSDK.start('YOUR_SDK_KEY');
+			
+			colale.control.showColaleLokales();
+		};
+		document.addEventListener('deviceready', onDeviceReady, false);
+		
+		// Set the 'lang' and 'dir' attributes to <html> when the page is translated
+		window.addEventListener('localized', function() {
+			document.documentElement.lang = document.webL10n.getLanguage();
+			document.documentElement.dir = document.webL10n.getDirection();
+			
+			// Update text values of selects in settings
+			$("#colale_settings_language").selectmenu("refresh");
+			$("#colale_settings_gender").selectmenu("refresh");
+
+		}, false);
+		
+		// Workaround for Slider flip that does not update itself!
+		var locationFlipWorkaround = true;
+		$(document).on("pagebeforeshow", "#colale_settings", function(){
+			console.log("Initialization of colale settings page...");
+			//console.log("Location4: " + $("#colale_settings_location_div>div").html());
+			if (locationFlipWorkaround) {
+				$("#colale_settings_location_div>div span:first").attr("data-l10n-id","Settings02");
+				$("#colale_settings_location_div>div span:nth-child(2)").attr("data-l10n-id","Settings12");
+				locationFlipWorkaround = false;
+			}
+			colale.control.loadColaleSettings();
+		});
+/*
+		$(document).on("pageshow", "#colale_settings", function(){
+			console.log("Initialization of colale settings pageshow..." + $("#radius_slider").html());
+			//$("#colale_settings_radius").slider("refresh");
+		});
+*/		
+		$(document).on("pagebeforeshow", "#colale_select_flashcards_list", function(){
+			console.log("Initialization of colale flashcard list...");
+			$("#colale-flashcard-list").listview("refresh");
+			//$("#colale-flashcard-list").trigger("create");
+		});
+		
+		$(document).on("pageshow", "#colale_settings_map", function(){
+			console.log("Triggering map resize2...");
+			//google.maps.event.trigger(colaleMap, 'resize');
+			resetColaleMapLocation();
+			//colaleMap.checkResize();
+		});
+		
+		$(document).on("pagebeforeshow", "#colale_settings_pois", function(){
+			//console.log("colale_settings_pois pagebeforeshow..." + $("#colale_settings_pois_results").html());
+		});
+	
+		$(document).on("pagebeforeshow", "#colale_settings_pois_results_content", function(){
+			// Refresh all checkboxes
+			console.log("Refreshing...");
+			$("#categories_checkboxes input[type='checkbox']").each(function() {
+				$(this).checkboxradio('refresh');
+				//console.log($(this).attr('name') + "," + $(this).attr('checked'));
+			});
+		});
+		
+		$(document).on("pageshow", "#colale_settings_user_pois", function(){
+			$("#colale_settings_user_pois_list").listview("refresh");
+		});
+			
+
+		/*
+		$(document).on("pagebeforeshow", "#colale_locales", function(){
+			var home_page=$("#colale_locales_LBS_categories");
+			console.log("LOKALES2: " + home_page.clone().wrap('<p>').parent().html());
+		});
+		*/
+		
+  </script>
+</head>
+
+<body onload="colale.control.loadColaleSettings();">
+<div data-role="page" data-control-title="Splash Screen mit Progress Bar" id="splash-screen" 
+	style="background: url('img/bg-colale-splash.png') no-repeat">
+    <div data-role="content">
+        <div data-controltype="textblock">
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                    Lade Lernkarten ...
+            </p>
+        </div>
+            <div data-role="content">
+                <div id="splash-screen-progressbar"></div>
+            </div>
+    </div>
+</div>
+
+	<!-- 1. CoLaLe Locales -->
+  <div data-role="page" data-control-title="Lokales" id="colale_locales">
+      <div data-theme="a" data-role="header">
+          <!--a data-role="button" href="javascript:colale.control.showColaleLokales(this);" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+          <a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3>
+              <span data-l10n-id="Menu1">Lokales</span>
+          </h3>
+      </div>
+
+	  <div data-role="content">
+		  <div id="colale_locales_NonLBS_categories">
+			<!-- The template is cloned directly from colale-category-list -->
+			<!--a data-role="button" data-transition="slide" href="#page25" data-icon="arrow-r" data-iconpos="right" 
+			class="colale-category-template-element" style="display:none">
+				Hide this row
+			</a-->
+		  </div>
+
+		  <div id="colale-lokales-progressbar"></div>
+		  
+		  <div id="colale_locales_LBS_categories">
+			<!--a data-role="button" data-transition="slide" href="#page25" data-icon="arrow-r" data-iconpos="right" 
+			class="colale-category-template-element">
+				&nbsp;
+			</a-->
+		  </div>
+		  
+		  <div id="colale_locales_POIs">
+			  <div data-controltype="textblock">
+				  <p>
+					  <strong>
+						  <span data-l10n-id="Label01">Gefiltert nach</span>
+					  </strong>
+				  </p>
+			  </div>
+			  <div data-controltype="textblock" id="colale_locales_POIs_list">
+				<span data-l10n-id="Empty">Empty</span>
+			  </div>
+
+		  </div>
+		  <p id="colale_debug_location" style="display:none">Debug</p>
+	  </div>
+	  
+
+	  
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+			  <!---->
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(1);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  
+    <!-- 2. CoLaLe Alle Listen -->
+	<!-- 2.1. CoLaLe: this part show the list of categories. -->
+  <div data-role="page" data-control-title="Vocab POI" id="colale_select_flashcards">
+      <div data-theme="a" data-role="header">
+          <!--a data-role="button" href="#page1" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+		  <a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+
+          <h3>
+              <span data-l10n-id="Menu2">Alle Listen</span>
+          </h3>
+      </div>
+	  <div data-role="content" id="colale-category-list">
+		<a data-role="button" data-transition="slide" href="#page25" data-icon="arrow-r" data-iconpos="right" class="colale-category-template-element">
+            Allgemeines
+        </a>
+
+	  </div>
+
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <!--a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="check" >
+					<span data-l10n-id="Menu1">Lokales</span>
+                  </a-->
+                  <a href="#colale_locales" data-transition="fade" data-theme="" data-icon="location" >
+					<span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                    <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(3);" data-transition="fade" data-theme="" data-icon="refresh">
+                    <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                    <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  
+	<!-- 2.1.1. CoLaLe: this part show the list of flashcards of one category. DEPRECATED -->
+  <div data-role="page" data-control-title="Listen_Auswahl" id="colale_assign">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext">
+          </a>
+          <h3>
+              Zuordnung der Lernkarten
+          </h3>
+      </div>
+      <div data-role="content">
+			<ul data-role="listview" data-divider-theme="b" data-inset="true" id="colale_assign_list">
+			</ul>
+      </div>
+  </div>
+  
+	<!-- 2.1.2. CoLaLe: this part show the list of flashcards of one category. -->
+  <div data-role="page" data-control-title="Vocab POI" id="colale_select_flashcards_list">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#colale_select_flashcards" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+		  <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->		  
+          <h3>
+              <span data-l10n-id="Menu2">Alle Listen</span>
+          </h3>
+      </div>
+      <div data-role="content">
+		<ul data-role="listview" data-divider-theme="b" data-inset="true" id="colale-flashcard-list">
+              <li data-role="list-divider" role="heading" class="colale-template-element-heading">
+                  Kategorien
+              </li>
+			   <li data-theme="c">
+                  <a href="#nothing" data-transition="slide" class="colale-template-element">
+                      First element
+                  </a>
+              </li>
+		</ul>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(2);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+	<!-- 2.1.2.1. CoLaLe: this part show the flashcard info -->
+  <div data-role="page" data-control-title="3_4" id="colale_flashcard">
+      <div data-theme="a" data-role="header">
+        <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left" class="ui-btn-right">
+			<span data-l10n-id="Home">Home</span>
+		</a-->
+        <h3>
+          <span data-l10n-id="Heading01">Übersetzung</span>
+        </h3>
+		<a data-role="button" data-rel="back" href="#page27" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+			<span data-l10n-id="Back">Zurück</span>
+		</a>
+      </div>
+      <div data-role="content">
+        <div data-controltype="textblock">
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="color: rgb(153, 153, 153);" data-mce-style="color: #999999;">
+				<b id="colale_flashcard_lang_start">Deutsch</b>
+			</span>
+          </p>
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="color: rgb(153, 153, 153);" data-mce-style="color: #999999;"><b><br></b></span>
+          </p>
+        </div>
+		
+		<div data-controltype="textblock" id="colale_flashcard_lang2_non_div">
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: x-large;" data-mce-style="font-size: x-large;">
+                      <strong id="colale_flashcard_lang_ziel_non">
+                          ﻿ขอ.....หน่อย
+                      </strong>
+                  </span>
+              </p>
+        </div>
+        <div data-controltype="textblock" id="colale_flashcard_lang2_female_div">
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="font-size: x-large;" data-mce-style="font-size: x-large;">
+				<strong>
+					<span style="color: rgb(255, 0, 255);">﻿
+						<b id="colale_flashcard_lang_ziel_female">Female</b>
+					</span> 
+				</strong>
+			</span>
+          </p>
+        </div>
+        <div data-controltype="textblock" id="colale_flashcard_lang2_male_div">
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="font-size: x-large;" data-mce-style="font-size: x-large;">
+				<strong>
+					<span style="color: rgb(51, 102, 255);">﻿
+						<b id="colale_flashcard_lang_ziel_male">Male</b>
+					</span> 
+				</strong>
+			</span>
+          </p>
+        </div>
+
+		<div data-controltype="textblock" id="colale_flashcard_phonetic2_non_div">
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: x-large;" data-mce-style="font-size: x-large;">
+                      <strong style="font-size: 10px;" data-mce-style="font-size: 10px;">
+                          <span style="font-family: arial, helvetica, sans-serif; font-size: large;" 
+						  data-mce-style="font-family: arial, helvetica, sans-serif; font-size: large;"
+						  id="colale_flashcard_phonetic2_non">
+                              Phonetic non
+                          </span>
+                          <br>
+                      </strong>
+                  </span>
+              </p>
+        </div>
+        <div data-controltype="textblock" id="colale_flashcard_phonetic2_female_div">
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="font-size: x-large;" data-mce-style="font-size: x-large;">
+				<strong>
+					<span style="color: rgb(255, 0, 255);">﻿
+						<b id="colale_flashcard_phonetic2_female">Phonetic female</b>
+					</span> 
+				</strong>
+			</span>
+          </p>
+        </div>
+        <div data-controltype="textblock" id="colale_flashcard_phonetic2_male_div">
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="font-size: x-large;" data-mce-style="font-size: x-large;">
+				<strong>
+					<span style="color: rgb(51, 102, 255);">﻿
+						<b id="colale_flashcard_phonetic2_male">Phonetic male</b>
+					</span> 
+				</strong>
+			</span>
+          </p>
+        </div>
+        <!--div data-controltype="textblock">
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="font-size: medium;" data-mce-style="font-size: medium;">
+				<strong>
+					<span style="color: rgb(255, 0, 255);">Frau: Khun Chuay Jhong Hong-phak Hai Noi Dai Mai Kha?</span> /
+				</strong>
+			</span>
+          </p>
+          <p style="text-align: center;" data-mce-style="text-align: center;">
+            <span style="font-size: medium; color: rgb(51, 102, 255);" data-mce-style="font-size: medium; color: #3366ff;">
+				<strong>Mann: Khun Chuay Jhong Hong-phak Hai Noi Dai Mai Khrap?</strong>
+			</span>
+          </p>
+        </div-->
+		<div style=" text-align:center" data-controltype="image">
+            <img id="colale_flashcard_audio_ziel_play_button" style="width: 30%; height: 30%" src="images/new-sound-button-transparent.png"/>
+        </div>
+
+        <div data-controltype="textblock">
+          <p>
+            <b><br></b>
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+        <ul>
+          <li>
+            <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location"><span data-l10n-id="Menu1">Lokales</span></a>
+          </li>
+          <li>
+            <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars"><span data-l10n-id="Menu2">Alle Listen</span></a>
+          </li>
+          <li>
+            <a href="" data-transition="fade" data-theme="" data-icon="refresh"><span data-l10n-id="Menu3">Sprache</span></a>
+          </li>
+          <li>
+            <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear"><span data-l10n-id="Menu4">Settings</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  <!-- 4. CoLaLe Settings --> 
+  <div data-role="page" data-control-title="Settings" id="colale_settings">
+      <div data-theme="a" data-role="header">
+          <!--a data-role="button" href="#page121" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+          <a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3 data-l10n-id="Menu4">
+              Einstellungen
+          </h3>
+      </div>
+      <div data-role="content" id="colale_settings_main">
+		  <div data-role="fieldcontain" data-controltype="slider" id="radius_slider">
+              <label for="colale_settings_radius">
+                  <span data-l10n-id="Settings10">Radius für Aktivierung festlegen</span>
+              </label>
+              <input id="colale_settings_radius" type="range" role="slider" name="colale_settings_radius" value="1000" min="50" max="1000"
+              data-highlight="false" onchange="colale.control.saveColaleSettings(this);"/>
+          </div>
+
+		  <div data-role="fieldcontain" data-controltype="slider" id="gps_slider" style="display:none">
+              <label for="colale_settings_gps">
+                  <span data-l10n-id="Settings13">GPS </span>
+              </label>
+              <input id="colale_settings_gps" type="range" role="slider" name="colale_settings_gps" value="30" min="60" max="600"
+              data-highlight="false" onchange="colale.control.saveColaleSettings(this);"/>
+          </div>
+
+          <div data-role="fieldcontain" data-controltype="slider" id="colale_settings_location_div">
+              <label for="colale_settings_location">
+                  <span data-l10n-id="Settings01">Sollen die Wortlisten ortzbezogen gefiltert werden?</span>
+              </label>
+              <select name="colale_settings_location" id="colale_settings_location" data-role="slider" onchange="colale.control.saveColaleSettings(this)">
+                  <option value="off" data-l10n-id="Settings12">
+                      <span data-l10n-id="Settings12">Nein</span>
+                  </option>
+                  <option value="on" data-l10n-id="Settings02">
+                      <span data-l10n-id="Settings02">Ja</span>
+                  </option>
+              </select>
+          </div>
+          <div data-role="fieldcontain" data-controltype="selectmenu">
+              <label for="colale_settings_language">
+                  <span data-l10n-id="Settings03">Welche Sprache soll voreingestellt sein?</span>
+              </label>
+              <select id="colale_settings_language" name="" onchange="colale.control.saveColaleSettings(this)">
+                  <option value="th" data-l10n-id="Settings04">
+                      Thailändisch
+                  </option>
+                  <option value="de" data-l10n-id="Settings05">
+                      Deutsch
+                  </option>
+                  <option value="en">
+                      English
+                  </option>
+              </select>
+          </div>
+          <div data-role="fieldcontain" data-controltype="selectmenu">
+              <label for="colale_settings_gender">
+                  <span data-l10n-id="Settings06">Welche Höflichkeitsform (Partikel am Satzende) sollen angezeigt werden?</span>
+              </label>
+              <select id="colale_settings_gender" name="" onchange="colale.control.saveColaleSettings(this)">
+                  <option value="man" data-l10n-id="Settings07">
+                      Männlich (khrap)
+                  </option>
+                  <option value="woman"  data-l10n-id="Settings08">
+                      Weiblich (kha)
+                  </option>
+                  <option value="both" data-l10n-id="Settings09">
+                      Beide (khrap/kha)
+                  </option>
+              </select>
+          </div>
+          <a data-role="button" href="javascript:colale.control.showColaleSettingsManagePlaces();">
+              <span data-l10n-id="Button04">Orte für Wortlisten verwalten</span>
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(6);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  
+  <!-- 4.1. CoLaLe: POIs management -->
+  <div data-role="page" data-control-title="page 2 new" id="colale_settings_wortlisten_menu">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#page121" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+          <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3>
+              <span data-l10n-id="Heading02">Wortlisten</span>
+          </h3>
+      </div>
+      <div data-role="content" id="colale_settings_places">
+          <div data-controltype="textblock">
+              <p>
+                  <span data-l10n-id="Settings11">Wählen Sie eine Option zu verwalten Ihre Wortlisten</span>
+              </p>
+          </div>
+          <a data-role="button" href="javascript:colale.control.showColaleSettingsMap();" data-transition="slide">
+              <span data-l10n-id="Button05">Neue Orte zuordnen</span>
+          </a>
+          <a data-role="button" href="javascript:colale.control.showUserPois();">
+              <span data-l10n-id="Button08">Zuordnungen ändern</span>
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(7);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- 4.1.1 CoLaLe: POIs Map -->
+  <div data-role="page" data-control-title="page 3 new" id="colale_settings_map">
+      <div data-theme="a" data-role="header">
+          <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3>
+              <span data-l10n-id="Heading02">Wortlisten</span>
+          </h3>
+          <a data-role="button" data-rel="back" href="#page122" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+      </div>
+      <div data-role="content" id="colale_settings_current_position">
+          <div id="googlemapsjs48" class="google-map" style="width: 100%; height: 200px; margin-left: auto; margin-right: auto">
+          </div>
+		  
+		  <div id="colale-map-progressbar"></div>
+
+          <script type="text/javascript">
+		  // 288px
+				//console.log("MAPPING...");
+			var colaleMap = null;
+			var colaleMapGeocoder = null;
+			var colaleMapMarker = null;
+			var colaleMapRadius = null;
+			  
+              window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs48', {
+                  ready: function(control) {
+                      control.options = {
+                          zoom: 14,
+                          mapTypeId: google.maps.MapTypeId.ROADMAP,
+                      };
+
+                      control.el = document.getElementById(control._id);
+                      control.map = new google.maps.Map(control.el, control.options);
+                      control.geocoder = new google.maps.Geocoder();
+					  colaleMap = control.map;
+					  colaleMapGeocoder = control.geocoder;
+					  
+					  google.maps.event.addListenerOnce(control.map, 'tilesloaded', function() {
+						//console.log("MAP: moving center..." + JSON.stringify(colaleMapMarker.getPosition()));
+						control.map.setCenter(colaleMapMarker.getPosition());
+						control.map.panTo(colaleMapMarker.getPosition());
+					  });
+
+                      // Try HTML5 geolocation
+                      if(navigator.geolocation) {
+						  var options = { timeout: 31000, 
+							enableHighAccuracy: true, 
+							maximumAge: 90000 };
+
+                          navigator.geolocation.getCurrentPosition(function(position) {
+                              var pos = new google.maps.LatLng(position.coords.latitude,
+                                      position.coords.longitude);
+							  //console.log("lat,lng: " + position.coords.latitude + "," +  position.coords.longitude);
+
+                              colaleMapMarker = new google.maps.Marker({
+                                  map: control.map,
+                                  position: pos,
+                                  path: 'CIRCLE'
+                              });
+							  
+							  colaleMapRadius = new google.maps.Circle({
+								map: control.map,
+								center: pos,
+								radius: parseInt(colale.model.getSetting("#colale_settings_radius")),
+								strokeColor:"#0000FF",
+								strokeOpacity:0.8,
+								strokeWeight:2,
+								fillColor:"#0000FF",
+								fillOpacity:0.4
+							  });
+
+							  colale.model.setLatitude(position.coords.latitude);
+                              colale.model.setLongitude(position.coords.longitude);
+								  /*
+							  google.maps.event.addListenerOnce(control.map, 'idle', function(){
+								//loaded fully
+								control.map.setCenter(colaleMapMarker.getPosition());
+								control.map.panTo(colaleMapMarker.getPosition());
+							  });*/
+                              control.map.setCenter(colaleMapMarker.getPosition());
+							  control.map.panTo(colaleMapMarker.getPosition());
+							  
+							  control.geocoder.geocode({'latLng': pos}, function(results, status) {
+                                      if (status == google.maps.GeocoderStatus.OK) {
+                                          //console.log("Map results: " + JSON.stringify(results));
+                                          $('#lastChoosenPosition').text(results[0].formatted_address);
+										  colale.model.setCurrentPoiAddress(results[0].formatted_address);
+                                      } else {
+                                          console.log("Geocoder failed due to: " + status);
+										  alert("Geocoder failed due to: " + status);
+                                      }
+                              });
+							  
+                              google.maps.event.addListener(control.map, 'click', function(event) {
+                                  colaleMapMarker.setMap(null);
+								  colaleMapRadius.setMap(null);
+								  
+                                  colaleMapMarker = new google.maps.Marker({
+                                      map: control.map,
+                                      position: event.latLng
+                                  });
+								  //console.log("lat,lmg: " + event.latLng.lat + "," + event.latLng.lng);
+								  //console.log("lat,lmg: " + event.latLng.lat() + "," + event.latLng.lng());
+                                  colale.model.setLatitude(event.latLng.lat());
+                                  colale.model.setLongitude(event.latLng.lng());
+                                  control.map.panTo(colaleMapMarker.getPosition());
+								  
+								  colaleMapRadius.setCenter(event.latLng);
+								  colaleMapRadius.setMap(control.map);
+
+                                  control.geocoder.geocode({'latLng': event.latLng}, function(results, status) {
+                                      if (status == google.maps.GeocoderStatus.OK) {
+                                          //console.log("Map results: " + JSON.stringify(results));
+                                          $('#lastChoosenPosition').text(results[0].formatted_address);
+										  colale.model.setCurrentPoiAddress(results[0].formatted_address);
+                                      } else {
+                                          console.log("Geocoder failed due to: " + status);
+                                      }
+                                  });
+                              });
+
+							  //control.map.setCenter(marker.getPosition());
+                          }, function() {
+								console.log("Cannot get the current position.");
+                          }, options);
+                      } else {
+                          console.log("Browser doesn't support Geolocation");
+
+                      }
+
+                  }
+              });
+			  
+			function showColaleAddress() {
+				var address = $("#colaleInputAddress").val();
+
+				colale.control.flurryTracker("setCurrentAddress: " + address);
+				console.log("Address: " + JSON.stringify(address));
+
+				if (address.length == 0) {
+					alert("Please introduce a valid address");
+					return;
+				}
+				if (colaleMapGeocoder) {
+					//console.log("Geocoder: " + JSON.stringify(colaleMapGeocoder));
+					colaleMapGeocoder.geocode(
+						 { 'address': address},
+						function(results, status) {
+							if (status != google.maps.GeocoderStatus.OK) {
+								alert(address + " not found: " + status);
+							} else {
+								var evnt = {
+									stop: null,
+									latLng: new google.maps.LatLng(results[0].geometry.location.lat(), 
+										results[0].geometry.location.lng())
+									}
+								//console.log("EVENT: " + JSON.stringify(evnt));
+								//console.log("EVENT2: " + results[0].geometry.location.lat());
+								google.maps.event.trigger(colaleMap, 'click', evnt);
+							}
+						}
+					);
+				}
+			}
+			
+			function resetColaleMapLocation() {
+				// Try HTML5 geolocation
+				if(navigator.geolocation) {
+					var options = { timeout: 31000, 
+							enableHighAccuracy: true, 
+							maximumAge: 90000 };
+
+					navigator.geolocation.getCurrentPosition(function(position) {
+						var pos = new google.maps.LatLng(position.coords.latitude,
+							position.coords.longitude);
+
+						colaleMapMarker.setMap(null);
+						colaleMapMarker = new google.maps.Marker({
+										  map: colaleMap,
+										  position: pos,
+										  path: 'CIRCLE'
+						});
+						colaleMapRadius.setMap(null);
+						colaleMapRadius = new google.maps.Circle({
+								map: colaleMap,
+								center: pos,
+								radius: parseInt(colale.model.getSetting("#colale_settings_radius")),
+								strokeColor:"#0000FF",
+								strokeOpacity:0.8,
+								strokeWeight:2,
+								fillColor:"#0000FF",
+								fillOpacity:0.4
+							  });
+							  
+						colale.model.setLatitude(position.coords.latitude);
+						colale.model.setLongitude(position.coords.longitude);
+										  
+						colaleMap.setCenter(colaleMapMarker.getPosition());
+						colaleMap.panTo(colaleMapMarker.getPosition());
+						colaleMapGeocoder.geocode({'latLng': pos}, function(results, status) {
+							if (status == google.maps.GeocoderStatus.OK) {
+								//console.log("Map results: " + JSON.stringify(results));
+								$('#lastChoosenPosition').text(results[0].formatted_address);
+								colale.model.setCurrentPoiAddress(results[0].formatted_address);
+							} else {
+								console.log("Geocoder failed due to: " + status);
+								alert("Cannot get current address: " + status);
+							}
+						});
+					}, function() {
+						console.log("Cannot get the current position.");
+						alert("Cannot get the current position.");
+					}, options);
+				} else {
+					console.log("Browser doesn't support Geolocation");
+				}
+			}
+
+
+			
+
+          </script>
+          <div data-controltype="textblock">
+              <p>
+                  <span style="font-size: medium;" data-mce-style="font-size: medium;">
+                      <b>
+                          <span data-l10n-id="Label03">Aktueller Standort:</span>
+                      </b>
+                  </span>
+              </p>
+              <p id="lastChoosenPosition">
+                  Loading...
+              </p>
+          </div>
+          <a data-role="button" data-theme="a" href="javascript:colale.control.getDataFromCurrentLocation();">
+              <span data-l10n-id="Button06">Aktuelle Standort verwenden</span>
+          </a>
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      <span data-l10n-id="Label04">oder</span>
+                  </b>
+              </p>
+          </div>
+          <div data-controltype="textblock">
+              <p>
+                  <span data-l10n-id="Label05">Adresse eingeben:</span>
+              </p>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <input name="colaleMapAddress" id="colaleInputAddress" placeholder="" value="" type="text">
+          </div>
+          <a data-role="button" data-theme="a" href="javascript:showColaleAddress();">
+              <span data-l10n-id="Button07">Adresse suchen</span>
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(8);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- 4.1.1.1 CoLaLe: List of near POIs -->
+  <div data-role="page" data-control-title="page 3.1 POI"  id="colale_settings_pois">
+      <div data-theme="a" data-role="header">
+          <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3>
+              <span data-l10n-id="Heading02">Wortlisten</span>
+          </h3>
+          <a data-role="button" data-rel="back" href="#page123" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+      </div>
+      <div data-role="content" id="colale_settings_pois_list">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      <span data-l10n-id="Label06">Wählen Sie einen Ort in der Nähe für den Sie Wortlisten zuordnen wollen
+                      </span>
+                  </b>
+              </p>
+          </div>
+          <div data-controltype="textblock" id="colale_settings_pois_results">
+			<!-- Filled with template of NonLBS categories -->
+          </div>
+          <!--div data-controltype="textblock">
+			  <a data-role="button" href="#page129">
+				  Camera Restaurant
+			  </a>
+          </div-->
+      </div>
+
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(9);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- 4.1.1.1.1 CoLaLe: Link POIs to categories -->
+  <div data-role="page" data-control-title="page 4.1 new Copy" id="colale_settings_pois_results_content">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#page126" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+          <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3>
+              <span data-l10n-id="Heading02">Wortlisten</span>
+          </h3>
+      </div>
+      <div data-role="content" id="current_pois_content">
+          <div data-controltype="textblock">
+              <p>
+                  <span style="font-family: arial, helvetica, sans-serif;" data-mce-style="font-family: arial, helvetica, sans-serif;">
+                      <strong>
+                          <span data-l10n-id="Label13">Bitte nehmen Sie änderungen der Zuordnungen vor oder löschen Sie alle
+                          Zuordnungen</span>
+                      </strong>
+                  </span>
+              </p>
+          </div>
+          <div data-controltype="textblock">
+              <p>
+                  <span data-l10n-id="Label14">Standort:</span>: <span id="currentPoiName">Camera Restaurant</span>
+              </p>
+              <p>
+                  <span id="currentPoiAddress">
+                      Unter den Eichen 5 65195 Wiesbaden (90 m.)
+                  </span>
+              </p>
+          </div>
+          <div id="categories_checkboxes" data-role="fieldcontain" data-controltype="checkboxes">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <legend>
+                      Wortlisten:
+                  </legend>
+                  <input id="checkbox6" name="Auto" type="checkbox">
+                  <label for="checkbox6">
+                      <span data-l10n-id="cat0400">Auto</span>
+                  </label>
+                  <input id="checkbox7" name="Geld" type="checkbox">
+                  <label for="checkbox7">
+                      <span data-l10n-id="cat0500">Geld</span>
+                  </label>
+                  <input id="checkbox8" name="Hotel" type="checkbox">
+                  <label for="checkbox8">
+                      <span data-l10n-id="cat0600">Hotel</span>
+                  </label>
+                  <input id="checkbox25" name="Kino" type="checkbox">
+                  <label for="checkbox25">
+                      <span data-l10n-id="cat0700">Kino</span>
+                  </label>
+                  <input id="checkbox26" name="Krankenhaus" type="checkbox">
+                  <label for="checkbox26">
+                      <span data-l10n-id="cat0800">Krankenhaus</span>
+                  </label>
+                  <input id="checkbox27" name="Markt" type="checkbox">
+                  <label for="checkbox27">
+                      <span data-l10n-id="cat0900">Markt</span>
+                  </label>
+                  <input id="checkbox28" name="Post" type="checkbox">
+                  <label for="checkbox28">
+                      <span data-l10n-id="cat1000">Post</span>
+                  </label>
+                  <input id="checkbox29" name="Reisen" type="checkbox">
+                  <label for="checkbox29">
+                      <span data-l10n-id="cat1100">Reisen</span>
+                  </label>
+                  <input id="checkbox30" name="Restaurant" type="checkbox">
+                  <label for="checkbox30">
+                      <span data-l10n-id="cat1200">Restaurant</span>
+                  </label>
+                  <!--input id="checkbox31" name="Basics" type="checkbox">
+                  <label for="checkbox31">
+                      <span data-l10n-id="cat0200">Basics</span>
+                  </label>
+                  <input id="checkbox32" name="Begrüßung" type="checkbox">
+                  <label for="checkbox32">
+                      <span data-l10n-id="cat0300">Begrüßung</span>
+                  </label>
+                  <input id="checkbox33" name="Allgemeines" type="checkbox">
+                  <label for="checkbox33">
+                      <span data-l10n-id="cat0100">Allgemeines</span>
+                  </label-->
+              </fieldset>
+          </div>
+          <a data-role="button" data-theme="b" href="javascript:colale.control.savePoiCategoriesCheckboxes();">
+              <span data-l10n-id="Button01">Änderungen speichern</span>
+          </a>
+          <a data-role="button" data-theme="b" href="javascript:colale.control.clearPoiCategoriesCheckboxes();">
+              <span data-l10n-id="Button02">Alles löschen</span>
+          </a>
+          <a data-role="button" data-theme="b" href="javascript:colale.control.deletePoiCategoriesCheckboxes();">
+              <span data-l10n-id="Button03">Abbrechen</span>
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(10);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- 4.1.2 CoLaLe: Modify user POIs -->
+  <div data-role="page" data-control-title="Location list new" id="colale_settings_user_pois">
+      <div data-theme="a" data-role="header">
+          <!--a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a-->
+          <h3>
+              <span data-l10n-id="Heading02">Wortlisten</span>
+          </h3>
+          <a data-role="button" data-rel="back" href="#page122" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+      </div>
+      <div data-role="content" id="colale_settings_user_pois_content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      <span data-l10n-id="Label11">Bitte wählen Sie eine Wortliste aus.</span>
+                  </strong>
+              </p>
+          </div>
+		  <ul data-role="listview" data-divider-theme="b" data-inset="true" id="colale_settings_user_pois_list">
+              <li data-role="list-divider" role="heading" class="colale-template-element-heading">
+                  <span data-l10n-id="Label12">Meine Orte</span>
+              </li>
+			   <li data-theme="c">
+				  <a href="#nothing" data-transition="slide" class="colale-template-element">
+					  First element
+				  </a>
+			  </li>
+		  </ul>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleAlleListen();" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSpreche(12);" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+    
+	<!-- DEPRECATED -->
+  <div data-role="page" data-control-title="page 4.1 new Copy" id="page129">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page126" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+          <a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a>
+          <h3>
+              Wortlisten
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <span style="font-family: arial, helvetica, sans-serif;" data-mce-style="font-family: arial, helvetica, sans-serif;">
+                      <strong>
+                          <span data-l10n-id="Label13">Bitte nehmen Sie änderungen der Zuordnungen vor oder löschen Sie alle
+                          Zuordnungen</span>
+                      </strong>
+                  </span>
+              </p>
+          </div>
+          <div data-controltype="textblock">
+              <p>
+                  <span data-l10n-id="Label14">Standort:</span> Camera Restaurant
+              </p>
+              <p>
+                  <span>
+                      Unter den Eichen 5 65195 Wiesbaden (90 m.)
+                  </span>
+              </p>
+          </div>
+          <div id="checkboxes2" data-role="fieldcontain" data-controltype="checkboxes">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <legend>
+                      Wortlisten:
+                  </legend>
+                  <input id="checkbox6" name="" type="checkbox">
+                  <label for="checkbox6">
+                      Hotel
+                  </label>
+                  <input id="checkbox7" name="" type="checkbox">
+                  <label for="checkbox7">
+                      Reisen
+                  </label>
+                  <input id="checkbox8" name="" type="checkbox">
+                  <label for="checkbox8">
+                      Restaurant
+                  </label>
+                  <input id="checkbox25" name="" type="checkbox">
+                  <label for="checkbox25">
+                      Kino
+                  </label>
+                  <input id="checkbox26" name="" type="checkbox">
+                  <label for="checkbox26">
+                      Geld
+                  </label>
+                  <input id="checkbox27" name="" type="checkbox">
+                  <label for="checkbox27">
+                      Krankenhaus
+                  </label>
+                  <input id="checkbox28" name="" type="checkbox">
+                  <label for="checkbox28">
+                      Post
+                  </label>
+                  <input id="checkbox29" name="" type="checkbox">
+                  <label for="checkbox29">
+                      Auto
+                  </label>
+                  <input id="checkbox30" name="" type="checkbox">
+                  <label for="checkbox30">
+                      Markt
+                  </label>
+                  <input id="checkbox31" name="" type="checkbox">
+                  <label for="checkbox31">
+                      Basics
+                  </label>
+                  <input id="checkbox32" name="" type="checkbox">
+                  <label for="checkbox32">
+                      Begrüßung
+                  </label>
+                  <input id="checkbox33" name="" type="checkbox">
+                  <label for="checkbox33">
+                      Allgemeines
+                  </label>
+              </fieldset>
+          </div>
+          <a data-role="button" data-theme="b" href="#page127">
+              <span data-l10n-id="Button01">Änderungen speichern</span>
+          </a>
+          <a data-role="button" data-theme="b" href="#page127">
+              <span data-l10n-id="Button02">Alles löschen</span>
+          </a>
+          <a data-role="button" data-theme="b" href="#page127">
+              <span data-l10n-id="Button03">Abbrechen</span>
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#colale_select_flashcards" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#page128" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="page camera restaurant save list" id="page120">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page127" data-icon="arrow-l" data-iconpos="left"
+          class="ui-btn-left">
+              <span data-l10n-id="Back">Zurück</span>
+          </a>
+          <a data-role="button" href="#colale_select_flashcards" data-icon="home" data-iconpos="left"
+          class="ui-btn-right">
+              <span data-l10n-id="Home">Home</span>
+          </a>
+          <h3>
+              Wortlisten
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  Standort: Camera Restaurant
+              </p>
+              <p>
+                  <span>
+                      Unter den Eichen 5 65195 Wiesbaden (90 m.)
+                  </span>
+              </p>
+          </div>
+          <div id="checkboxes3" data-role="fieldcontain" data-controltype="checkboxes">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <legend>
+                      Wortlisten:
+                  </legend>
+                  <input id="checkbox36" name="" type="checkbox">
+                  <label for="checkbox36">
+                      Restaurant
+                  </label>
+                  <input id="checkbox38" name="" type="checkbox">
+                  <label for="checkbox38">
+                      Geld
+                  </label>
+                  <input id="checkbox42" name="" type="checkbox">
+                  <label for="checkbox42">
+                      Markt
+                  </label>
+                  <input id="checkbox43" name="" type="checkbox">
+                  <label for="checkbox43">
+                      Basics
+                  </label>
+                  <input id="checkbox44" name="" type="checkbox">
+                  <label for="checkbox44">
+                      Begrüßung
+                  </label>
+                  <input id="checkbox45" name="" type="checkbox">
+                  <label for="checkbox45">
+                      Allgemeines
+                  </label>
+              </fieldset>
+          </div>
+          <a data-role="button" data-theme="b" href="#page127">
+              Änderungen speichern
+          </a>
+          <a data-role="button" data-theme="b" href="#page127">
+              Alles löschen
+          </a>
+          <a data-role="button" data-theme="b" href="#page127">
+              Abbrechen
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="a">
+          <ul>
+              <li>
+                  <a href="javascript:colale.control.showColaleLokales(this);" data-transition="fade" data-theme="" data-icon="location">
+                      <span data-l10n-id="Menu1">Lokales</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#colale_select_flashcards" data-transition="fade" data-theme="" data-icon="bars">
+                      <span data-l10n-id="Menu2">Alle Listen</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#page128" data-transition="fade" data-theme="" data-icon="refresh">
+                      <span data-l10n-id="Menu3">Sprache</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="javascript:colale.control.showColaleSettings();" data-transition="fade" data-theme="" data-icon="gear">
+                      <span data-l10n-id="Menu4">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  
+  <!-- CoLaLe Helper: templates used on the listviews -->
+	<div data-role="page" data-control-title="" id="colale_helper">
+		<div data-role="content">
+			<ul data-role="listview" data-divider-theme="b" data-inset="true" id="colale-flashcard-list-helper">
+				<li data-role="list-divider" role="heading" class="colale-template-element-heading-helper">
+					Kategorien
+				</li>
+				<li data-theme="c">
+					<a href="#nothing" data-transition="slide" class="colale-template-element-helper">
+						First element
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CoLaLe_Phrases</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="css/jquery-ui.min.css" rel="stylesheet"/>
+  <link href="css/jquery-ui.structure.min.css" rel="stylesheet"/>
+  <link href="css/jquery-ui.theme.min.css" rel="stylesheet"/>
+
+  <link href="css/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet">
+  <link href="css/colale-beta.css" rel="stylesheet">
+  <link href="css/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet">
+
+  <link href="css/jQMProgressBar.css" rel="stylesheet"/>
+  <link href="css/codiqa.ext.min.css" rel="stylesheet">
+
+  <script src="cordova.js"></script>
+
+  <script src="js/OpenLayers.js"></script>
+
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.mobile-1.3.1.min.js"></script>
+  <script src="js/jQMProgressBar.js"></script>
+  <script src="js/codiqa.ext.min.js"></script>
+
+
+	<script src="js/colale.lib.js"></script>
+	<script src="js/colale.model.js"></script>
+	<script src="js/colale.view.js"></script>
+	<script src="js/colale.control.js"></script>
+	<script src="js/colale_phrases.js"></script>
+
+  <script src="https://cdn.flurry.com/js/flurry.js"></script>
+  <script type="text/javascript" src="js/distimosdk/distimosdk.js"></script>
+  <script type="text/javascript">
+  		FlurryAgent.startSession("V8TPMNGDXJF4RTZXMYWT");
+  		
+  		// Trackers
+  		var GAnalyticsAgent;
+  		var DistimoAgent;
+  		
+		var onDeviceReady = function () {
+  			// Google Analytics
+	  		GAnalyticsAgent = navigator.analytics;
+	  		GAnalyticsAgent.setTrackingId('UA-56447634-1');
+	  		GAnalyticsAgent.setLogLevel(GAnalyticsAgent.LogLevel.VERBOSE);
+	  		
+	  		// Distimo
+	  		//DistimoSDK.start('YOUR_SDK_KEY');
+		};
+		document.addEventListener('deviceready', onDeviceReady, false);  		
+  </script>	  
+  
+</head>
+<body>
+<div data-role="page" data-control-title="Splash Screen mit Progress Bar"
+id="splash-screen" style="background: url('https://s3.amazonaws.com/assets.codiqa.com/I5ELWoPiR9eh54WPmzlc_bg-colale-splash.png') no-repeat">
+    <div data-role="content">
+        <div data-controltype="textblock">
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                    Lade Lernkarten ...
+            </p>
+        </div>
+            <div data-role="content">
+                <div id="splash-screen-progressbar"></div>
+            </div>
+    </div>
+</div>
+
+  <div data-role="page" data-control-title="Home" id="page1">
+      <div data-theme="a" data-role="header">
+          <h3>
+              CoLaLe
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Phrasen Sammlung
+                  </b>
+              </p>
+          </div>
+          <a data-role="button" href="#colale_select_flashcards">
+              Lernkarten
+          </a>
+          <a data-role="button" href="#page12">
+              Ortsbezogene Lernkarten
+          </a>
+          <a data-role="button" href="#colale_assign">
+              Zuordnung der Lernkarten
+          </a>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Einstellungen
+                  </b>
+              </p>
+          </div>
+          <a data-role="button" href="#page15">
+              Meine Orte Verwalten
+          </a>
+          <div data-role="fieldcontain" data-controltype="toggleswitch">
+              <label for="toggleswitch1">
+                  Phrasen mit Ortsbezug aktivieren
+              </label>
+              <select name="toggleswitch1" id="toggleswitch1" data-theme="" data-role="slider">
+                  <option value="off">
+                      Aus
+                  </option>
+                  <option value="on">
+                      Ein
+                  </option>
+              </select>
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <a data-role="button" href="#page15">
+              Impressum
+          </a>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <a data-role="button" href="javascript:colale.control.showFakePositionView()">
+              Standort manuell festlegen
+          </a>
+      </div>
+    </div>
+  <div data-role="page" data-control-title="Lernkarten_Auswahl" id="colale_select_flashcards">
+      <div data-theme="a" data-role="header" class="by Lection">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext"
+          class="ui-btn-left">
+          </a>
+          <h5>
+              Lernkarten
+          </h5>
+      </div>
+      <div data-role="content">
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <ul data-role="listview" data-divider-theme="b" data-inset="true" id="colale-category-list">
+              <li data-role="list-divider" role="heading">
+                  Kategorien
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide" class="colale-template-element">
+                      Basics
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page7" data-transition="slide">
+                      BegrÃ¼ÃŸung
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page1" data-transition="slide">
+                      Hotel
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Reisen
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Essen &amp; Trinken
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Kino
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Geld
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Krankenhaus
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Post
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Auto
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Markt
+                  </a>
+              </li>
+          </ul>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Basics_Ansicht_Flashcard" id="page5">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page14" data-icon="arrow-l" data-iconpos="notext">
+          </a>
+          <h1>
+              Basics
+          </h1>
+      </div>
+      <div data-role="content">
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div style=" text-align:center" data-controltype="image">
+              <img style="width: 290px; height: 390px" src="img/preset_1_placeholder.png">
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <a data-role="button" href="#page20">
+              Weiter
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Ortsbezogene Lernkarten" id="page12">
+      <div data-theme="a" data-role="header">
+          <h2>
+              Lernorte
+          </h2>
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext">
+          </a>
+      </div>
+      <div data-role="content">
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Gespeicherte Lernorte
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      UniversitÃ¤t
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page15" data-transition="slide">
+                      Supermarkt
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page15" data-transition="slide">
+                      Zuhause
+                  </a>
+              </li>
+          </ul>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Listen_Auswahl" id="colale_assign">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext">
+          </a>
+          <h3>
+              Zuordnung der Lernkarten
+          </h3>
+      </div>
+      <div data-role="content">
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <ul data-role="listview" data-divider-theme="b" data-inset="true" id="colale_assign_list">
+<!--              <li data-role="list-divider" role="heading">
+                  A
+              </li>
+              <li data-role="list-divider" role="heading">
+                  B
+              </li>
+              <li data-theme="">
+                  <a href="#page26" data-transition="none">
+                      Basics
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page13" data-transition="none">
+                      BegrÃ¼ÃŸung
+                  </a>
+              </li>
+              <li data-role="list-divider" role="heading">
+                  C
+              </li>
+              <li data-role="list-divider" role="heading">
+                  D
+              </li>
+              <li data-role="list-divider" role="heading">
+                  E
+              </li>
+              <li data-role="list-divider" role="heading">
+                  F
+              </li>
+              <li data-role="list-divider" role="heading">
+                  G
+              </li>
+              <li data-role="list-divider" role="heading">
+                  H
+              </li>
+              <li data-role="list-divider" role="heading">
+                  I
+              </li>
+              <li data-role="list-divider" role="heading">
+                  J
+              </li>
+              <li data-role="list-divider" role="heading">
+                  ...
+              </li>
+-->
+			</ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Basics_Ansicht_Liste" id="page26">
+      <div data-theme="a" data-role="header" class="by Lection">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext"
+          class="ui-btn-left">
+          </a>
+          <h5>
+              Listenansicht
+          </h5>
+      </div>
+      <div data-role="content">
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Basics
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Ja
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page7" data-transition="slide">
+                      Nein
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page1" data-transition="slide">
+                      Danke sehr
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Gern geschehen
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Verzeihung
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Entschuldigung
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Woher kommst du?
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Sprichst du Englisch?
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Was ist das?
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Wo geht es nach...?
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page5" data-transition="slide">
+                      Ich verstehe nicht
+                  </a>
+              </li>
+          </ul>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Meine Orte" id="page15">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext">
+          </a>
+          <h3>
+              Meine Orte
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      <br>
+                  </b>
+              </p>
+          </div>
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Gespeicherte Lernorte
+              </li>
+              <li data-theme="c">
+                  <a href="#page15" data-transition="slide">
+                      UniversitÃ¤t
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page15" data-transition="slide">
+                      Supermarkt
+                  </a>
+              </li>
+          </ul>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <a data-role="button" href="#page21">
+              Neuen Lernort erstellen
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Neuen Ort erstellen" id="page21">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page15" data-icon="arrow-l" data-iconpos="notext">
+          </a>
+          <h3>
+              Neuer Ort
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput1">
+                  Neuer Lernort:
+              </label>
+              <input name="" id="textinput1" placeholder="" value="" type="text">
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div style="" data-controltype="image">
+              <img style="width: 286px; height: 171px" src="img/bildschirmfoto-2014-05-27-um-20.11.10.png">
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div data-controltype="textblock">
+              <p style="text-align: left;" data-mce-style="text-align: left;">
+                  <b>
+                      Phrasen Kategorie zuordnen:
+                  </b>
+              </p>
+          </div>
+          <div data-role="fieldcontain" data-controltype="selectmenu">
+              <select id="selectmenu1" name="">
+                  <option value="option1">
+                      Phrasen
+                  </option>
+                  <option value="value">
+                      Basics
+                  </option>
+                  <option value="value">
+                      BegrÃ¼ÃŸung
+                  </option>
+                  <option value="value">
+                      Hotel
+                  </option>
+                  <option value="value">
+                      Reisen
+                  </option>
+                  <option value="value">
+                      Essen &amp; Trinken
+                  </option>
+                  <option value="value">
+                      Kino
+                  </option>
+                  <option value="value">
+                      Geld
+                  </option>
+                  <option value="value">
+                      Krankenhaus
+                  </option>
+                  <option value="value">
+                      Post
+                  </option>
+                  <option value="value">
+                      Auto
+                  </option>
+                  <option value="value">
+                      Markt
+                  </option>
+              </select>
+          </div>
+          <a data-role="button" href="#page25">
+              Zuordnung sichern
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Neuen Ort sichern" id="page25">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page15" data-icon="arrow-l" data-iconpos="notext">
+          </a>
+          <h3>
+              Lernorte
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-role="fieldcontain" data-controltype="textarea">
+              <label for="textarea1">
+                  Lernort gespeichert als:
+              </label>
+              <textarea name="" id="textarea1" placeholder=""></textarea>
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div style="" data-controltype="image">
+              <img style="width: 286px; height: 171px" src="img/bildschirmfoto-2014-05-27-um-20.11.10.png">
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div data-role="fieldcontain" data-controltype="slider">
+              <label for="slider4">
+                  Bewegungsumkreis hinzufÃ¼gen (km)
+              </label>
+              <input id="slider4" type="range" name="slider" value="2" min="0" max="5"
+              data-highlight="false">
+          </div>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <a data-role="button" href="#page29">
+              Lernort sichern
+          </a>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Meine Orte 2" id="page29">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext">
+          </a>
+          <h3>
+              Meine Orte
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      <br>
+                  </b>
+              </p>
+              <p>
+                  <b>
+                      <br>
+                  </b>
+              </p>
+          </div>
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Gespeicherte Lernorte
+              </li>
+              <li data-theme="c">
+                  <a href="#page25" data-transition="slide">
+                      UniversitÃ¤t
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page15" data-transition="slide">
+                      Supermarkt
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page15" data-transition="slide">
+                      Zuhause
+                  </a>
+              </li>
+          </ul>
+          <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <a data-role="button" href="#page23">
+              Neuen Lernort erstellen
+          </a>
+      </div>
+  </div>
+<div data-role="page" data-control-title="Basics_Ansicht_Flashcard_3" id="colale_flashcard">
+    <div data-theme="a" data-role="header">
+        <a data-role="button" id="colale_flashcard_return_to" href="#page14" data-icon="arrow-l" data-iconpos="notext">
+        </a>
+        <h1 id="colale_flashcard_header">
+            Basics (3)
+        </h1>
+    </div>
+    <div data-role="content">
+        <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+<!--        <div data-role="fieldcontain" data-controltype="slider" id="colale_flashcard_progress" >
+            <input type="range" name="slider" id="colale_flashcard_progress" />
+        </div>
+-->
+		<div data-role="content">
+			<div id="colale_flashcard_progress"></div>
+		</div>
+		<div data-controltype="textblock">
+            <p style="text-align: center;" data-mce-style="text-align: center;">
+                <b>
+                    <br>
+                </b>
+            </p>
+            <p style="text-align: center;" data-mce-style="text-align: center;">
+                <b id="colale_flashcard_lang_start">
+                    Deutsch
+                </b>
+            </p>
+            <p style="text-align: center;" data-mce-style="text-align: center;">
+                <b>
+                    <br>
+                </b>
+            </p>
+            <p style="text-align: center;" data-mce-style="text-align: center;">
+                <b>
+                    <br>
+                </b>
+            </p>
+            <p style="text-align: center;" data-mce-style="text-align: center;">
+                <b id="colale_flashcard_lang_ziel">
+                    Thai
+                </b>
+            </p>
+        </div>
+<!--        <div data-controltype="htmlblock">
+        	<audio controls>
+            	<source id="colale_flashcard_audio_ziel" src="">
+            </audio>
+        </div>
+-->
+<div style=" text-align:center" data-controltype="image">
+            <img id="colale_flashcard_audio_ziel_play_button" style="width: 30%; height: 30%" src="img/abgerundet-play-button.jpg">
+        </div>
+
+<hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+        <a data-role="button" id="colale_flashcard_next">
+            Weiter
+        </a>
+        <a data-role="button" id="colale_flashcard_prev">
+            ZurÃ¼ck
+        </a>
+    </div>
+</div>
+<div data-role="page" data-control-title="Standort festlegen" id="colale_fake_position">
+    <div data-theme="a" data-role="header">
+          <a data-role="button" href="#page1" data-icon="home" data-iconpos="notext"
+          class="ui-btn-left">
+          </a>
+        <h3>
+            Standort
+        </h3>
+    </div>
+    <div data-role="content">
+		<div id="colale_fake_position_map"></div>
+        <hr style="height:1px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+
+		<!-- OOSO: Radius -->
+		<div data-role="fieldcontain" data-controltype="textinput">
+              <label for="radiusinput">
+                  Radius:
+              </label>
+              <input name="" id="radiusinput" placeholder="" value="100" type="text">
+        </div>
+          
+        <a data-role="button" href="javascript:colale.control.showLocation()" id="colale_fake_position_geo">
+            GPS-Koordinaten verwenden
+        </a>
+        <a data-role="button" href="javascript:colale.control.centerLocation()" id="colale_fake_position_center" class="colale_fake_position_hide_button">
+            Marker zentrieren
+        </a>
+        <a data-role="button" href="javascript:colale.control.showPOIs()" id="colale_fake_position_select" class="colale_fake_position_hide_button">
+            Als Standort verwenden
+        </a>
+		<div id="colale_fake_position_progressbar"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

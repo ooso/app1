@@ -1,0 +1,552 @@
+Buildfile: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\build.xml
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 23.0.5
+ [checkenv] Installed at C:\myshit\adt-bundle-windows-x86_64-20140702\sdk
+
+-setup:
+     [echo] Project Name: CoLaLe
+  [gettype] Project Type: Application
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-pre-build:
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 20.0.0
+     [echo] Resolving Build Target for CoLaLe...
+[gettarget] Project Target:   Android 4.4.2
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\rsObj
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\rsLibs
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\gen
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\classes
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for CoLaLe...
+[dependency] Library dependencies:
+[dependency] 
+[dependency] ------------------
+[dependency] Ordered libraries:
+[dependency] 
+[dependency] ------------------
+     [echo] ----------
+     [echo] Building Libraries with 'debug'...
+
+nodeps:
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 23.0.5
+ [checkenv] Installed at C:\myshit\adt-bundle-windows-x86_64-20140702\sdk
+
+-setup:
+     [echo] Project Name: CordovaLib
+  [gettype] Project Type: Android Library
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-pre-build:
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 20.0.0
+     [echo] Resolving Build Target for CordovaLib...
+[gettarget] Project Target:   Android 4.4.2
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\rsObj
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\rsLibs
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\gen
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\classes
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for CordovaLib...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 3 source files to D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\classes
+     [echo] Creating library output jar file...
+      [jar] Building jar: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\classes.jar
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res
+   [crunch] To destination dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_full_open_on_phone.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_full_open_on_phone.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_full_open_on_phone.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_ic_googleplayservices.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_ic_googleplayservices.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_ic_googleplayservices.png: 79% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_normal_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_normal_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_pressed_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_icon_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_icon_pressed_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_normal_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_normal_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_pressed_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\common_signin_btn_text_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\common_signin_btn_text_pressed_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\ic_plusone_medium_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_medium_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_medium_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\ic_plusone_small_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_small_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_small_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\ic_plusone_standard_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_standard_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_standard_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\ic_plusone_tall_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_tall_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\ic_plusone_tall_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\powered_by_google_dark.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\powered_by_google_dark.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\powered_by_google_dark.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-hdpi\powered_by_google_light.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\powered_by_google_light.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-hdpi\powered_by_google_light.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_normal_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_normal_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_pressed_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_icon_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_icon_pressed_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_normal_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_normal_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_pressed_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\common_signin_btn_text_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\common_signin_btn_text_pressed_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\ic_plusone_medium_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_medium_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_medium_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\ic_plusone_small_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_small_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_small_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\ic_plusone_standard_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_standard_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_standard_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\ic_plusone_tall_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_tall_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\ic_plusone_tall_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\powered_by_google_dark.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\powered_by_google_dark.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\powered_by_google_dark.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-mdpi\powered_by_google_light.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\powered_by_google_light.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-mdpi\powered_by_google_light.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-tvdpi\ic_plusone_medium_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_medium_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_medium_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-tvdpi\ic_plusone_small_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_small_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_small_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-tvdpi\ic_plusone_standard_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_standard_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_standard_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-tvdpi\ic_plusone_tall_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_tall_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-tvdpi\ic_plusone_tall_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_normal_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_normal_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_pressed_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_icon_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_icon_pressed_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_focus_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_focus_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_normal_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_normal_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_pressed_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\common_signin_btn_text_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\common_signin_btn_text_pressed_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\ic_plusone_medium_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_medium_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_medium_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\ic_plusone_small_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_small_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_small_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\ic_plusone_standard_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_standard_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_standard_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\ic_plusone_tall_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_tall_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\ic_plusone_tall_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\powered_by_google_dark.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\powered_by_google_dark.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\powered_by_google_dark.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xhdpi\powered_by_google_light.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\powered_by_google_light.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xhdpi\powered_by_google_light.png: 110% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_dark.9.png: 82% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_dark.9.png: 80% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_light.9.png: 80% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_disabled_light.9.png: 82% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_focus_dark.9.png: 62% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_focus_light.9.png: 65% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_normal_dark.9.png: 62% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_normal_light.9.png: 65% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_pressed_dark.9.png: 58% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_icon_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_icon_pressed_light.9.png: 55% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_disabled_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_dark.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_dark.9.png: 73% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_light.9.png: 73% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_disabled_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_disabled_light.9.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_focus_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_focus_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_focus_dark.9.png: 58% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_focus_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_focus_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_focus_light.9.png: 61% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_normal_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_normal_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_normal_dark.9.png: 58% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_normal_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_normal_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_normal_light.9.png: 61% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_pressed_dark.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_pressed_dark.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_pressed_dark.9.png: 54% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\common_signin_btn_text_pressed_light.9.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_pressed_light.9.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\common_signin_btn_text_pressed_light.9.png: 51% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\ic_plusone_medium_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_medium_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_medium_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\ic_plusone_small_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_small_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_small_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\ic_plusone_standard_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_standard_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_standard_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\ic_plusone_tall_off_client.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_tall_off_client.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\ic_plusone_tall_off_client.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\powered_by_google_dark.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\powered_by_google_dark.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\powered_by_google_dark.png: 70% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\res\drawable-xxhdpi\powered_by_google_light.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\powered_by_google_light.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\res\drawable-xxhdpi\powered_by_google_light.png: 68% size of source)
+   [crunch] Crunched 110 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-do-debug:
+     [echo] Library project: do not create apk...
+[propertyfile] Creating new property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\bin\build.prop
+
+-post-build:
+
+debug:
+
+nodeps:
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 23.0.5
+ [checkenv] Installed at C:\myshit\adt-bundle-windows-x86_64-20140702\sdk
+
+-setup:
+     [echo] Project Name: CordovaLib
+  [gettype] Project Type: Android Library
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-pre-build:
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 20.0.0
+     [echo] Resolving Build Target for CordovaLib...
+[gettarget] Project Target:   Android 4.4.2
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\res
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\rsObj
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\rsLibs
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\gen
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\classes
+    [mkdir] Created dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for CordovaLib...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 89 source files to D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+     [echo] Creating library output jar file...
+      [jar] Building jar: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\classes.jar
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\res
+   [crunch] To destination dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-do-debug:
+     [echo] Library project: do not create apk...
+[propertyfile] Creating new property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\bin\build.prop
+
+-post-build:
+
+debug:
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+     [echo] Set jars path to: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\ant-build\classes.jar;D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\ant-build\classes.jar;D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\libs\FlurryAnalytics-4.2.0.jar;D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\libs\google-play-services.jar
+
+-compile:
+    [javac] Compiling 19 source files to D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\classes
+    [javac] Note: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\src\org\apache\cordova\file\DirectoryManager.java uses or overrides a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\src\org\apache\cordova\file\ContentFilesystem.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+      [dex] input: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\classes
+      [dex] input: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\ant-build\classes.jar
+      [dex] input: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\ant-build\classes.jar
+      [dex] input: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\libs\FlurryAnalytics-4.2.0.jar
+      [dex] input: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\libs\google-play-services.jar
+      [dex] Pre-Dexing D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\CordovaLib\ant-build\classes.jar -> classes-22fe1fbfe8f50f1fa52a1677509b6c0b.jar
+      [dex] Pre-Dexing D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\ant-build\classes.jar -> classes-d28241ae218c2cd2176b28773bd30619.jar
+      [dex] Pre-Dexing D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\libs\FlurryAnalytics-4.2.0.jar -> FlurryAnalytics-4.2.0-8fa6d835aed7b76501cafe44b0433eb0.jar
+      [dex] Pre-Dexing D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\google-play-services_lib\libs\google-play-services.jar -> google-play-services-329dfee8b4fc473656f090994b3c8f91.jar
+      [dex] Converting compiled files and external libraries into D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\classes.dex...
+       [dx] Merged dex A (68 defs/81.4KiB) with dex B (206 defs/314.1KiB). Result is 274 defs/479.9KiB. Took 0.8s
+       [dx] Merged dex A (274 defs/479.9KiB) with dex B (1 defs/0.4KiB). Result is 275 defs/612.8KiB. Took 0.2s
+       [dx] Merged dex A (275 defs/612.8KiB) with dex B (108 defs/121.9KiB). Result is 383 defs/995.2KiB. Took 0.2s
+       [dx] Result compacted from 4937.9KiB to 3415.2KiB to save 1522.7KiB
+       [dx] Merged dex A (383 defs/995.2KiB) with dex B (3293 defs/2941.6KiB). Result is 3676 defs/3415.2KiB. Took 1.0s
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res
+   [crunch] To destination dir: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-hdpi\icon.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-hdpi\icon.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-hdpi\icon.png: 67% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-land-hdpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-hdpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-hdpi\screen.png: 97% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-land-ldpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-ldpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-ldpi\screen.png: 96% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-land-mdpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-mdpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-mdpi\screen.png: 97% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-land-xhdpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-xhdpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-land-xhdpi\screen.png: 99% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-ldpi\icon.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-ldpi\icon.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-ldpi\icon.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-mdpi\icon.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-mdpi\icon.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-mdpi\icon.png: 0% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-port-hdpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-hdpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-hdpi\screen.png: 97% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-port-ldpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-ldpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-ldpi\screen.png: 97% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-port-mdpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-mdpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-mdpi\screen.png: 99% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-port-xhdpi\screen.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-xhdpi\screen.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-port-xhdpi\screen.png: 99% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable-xhdpi\icon.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-xhdpi\icon.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable-xhdpi\icon.png: 53% size of source)
+   [crunch] Processing image to cache: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\res\drawable\icon.png => D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable\icon.png
+   [crunch]   (processed image to cache entry D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\res\drawable\icon.png: 53% size of source)
+   [crunch] Crunched 13 PNG files to update cache
+
+-package-resources:
+     [aapt] Creating full resource package...
+
+-package:
+[apkbuilder] Current build type is different than previous build: forced apkbuilder run.
+[apkbuilder] Creating CoLaLe-debug-unaligned.apk and signing it with a debug key...
+
+-post-package:
+
+-do-debug:
+ [zipalign] Running zip align on final apk...
+     [echo] Debug Package: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\CoLaLe-debug.apk
+[propertyfile] Creating new property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\build.prop
+[propertyfile] Updating property file: D:\Projects\hs-rm\development\CoLaLe\v08\colale\platforms\android\bin\build.prop
+
+-post-build:
+
+debug:
+
+BUILD SUCCESSFUL
+Total time: 1 minute 40 seconds

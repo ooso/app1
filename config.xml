@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="colale.de" version="0.9.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CoLaLe</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    
+    <!--gap:plugin name="org.apache.cordova.media"/>
+    <gap:plugin name="org.apache.cordova.core.Device"/-->
+    
+    <!-- plugin name="Media" value="org.apache.cordova.AudioHandler" />
+    
+    <feature name="http://api.phonegap.com/1.0/device"/>
+    <feature name="http://api.phonegap.com/1.0/media"/-->
+	<!--js-module src="www/flurry.js" name="Flurry">
+        <clobbers target="Flurry" />
+    </js-module-->
+	<feature name="Flurry">
+        <param name="android-package" value="com.phonegap.plugins.Flurry" />
+    </feature>	
+    <feature name="Media">
+    	<param name="android-package" value="org.apache.cordova.AudioHandler" />
+	</feature>
+	
+	<feature name="Geolocation">
+		<param name="android-package" value="org.apache.cordova.GeoBroker" />
+	</feature>
+</widget>
